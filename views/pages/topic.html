@@ -1,0 +1,15 @@
+<div class="page">
+    <h1>{{ topic.name }}</h1>
+    <ul>
+        <li ng-repeat="thread in threads">
+            <a ui-sref="thread({threadId: thread._id})">{{ thread.content }}</a>
+            by {{ thread.author }} at {{ thread.createdAt | date }}
+        </li>
+    </ul>
+    
+    <h2>Create a new thread</h2>
+    <form ng-submit="createThread(thread)">
+        <input type="text" placeholder="Start discussion..." ng-model="thread.content">
+        <button type="submit">Create</button>
+    </form>
+</div>

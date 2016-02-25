@@ -1,0 +1,17 @@
+<div class="page">
+    <p>{{ thread.content }}</p>
+    <p>by {{ thread.author }} at {{ thread.createdAt | date }}</p>
+    
+    <ul>
+        <li ng-repeat="post in posts">
+            <p ng-bind="post.content"></p>
+            by {{ post.author }} at {{ post.createdAt | date }}
+        </li>
+    </ul>
+    
+    <h2>Reply</h2>
+    <form ng-submit="createPost(post)">
+        <input type="text" placeholder="Write your reply..." ng-model="post.content">
+        <button type="submit">Post</button>
+    </form>
+</div>
